@@ -133,6 +133,7 @@ Onde:
 M = 13 - 12 + 2(1) = 3
 \)
 
+---
 ### Análise de Complexidade Assintótica
 
  **Análise da complexidade temporal**
