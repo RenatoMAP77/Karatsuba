@@ -9,7 +9,15 @@ inteiros grandes, introduzida por Anatolii Karatsuba em 1960. Ele melhora a
 complexidade da multiplicação em comparação ao método tradicional de
 multiplicação direta.
 
-### Explicação linha a linha do código
+### Explicação do Algoritmo
+O algoritmo de Karatsuba funciona com base na abordagem "divide and conquer", quebrando os números em partes menores para reduzir o número de multiplicações. Ele segue os seguintes passos:
+1. Se os números forem pequenos o suficiente, realiza a multiplicação diretamente.
+2. Caso contrário, divide os números ao meio, separando as partes de ordem mais alta e mais baixa.
+3. Faz três chamadas recursivas para multiplicar essas partes menores.
+4. Usa as multiplicações obtidas para calcular o resultado final, reduzindo o número total de operações comparado ao método tradicional.
+
+Esse processo reduz a complexidade da multiplicação de \( O(n^2) \) para aproximadamente \( O(n^{1.585}) \), tornando-o mais eficiente para números grandes.
+
 
 ```python
 def karatsuba(x: int, y: int) -> int:
@@ -29,7 +37,26 @@ def karatsuba(x: int, y: int) -> int:
 ```
 
 
-## Como execurtar o projeto
+## Como executar o projeto
+Para executar o projeto, siga os passos abaixo:
+
+### **Requisitos**
+- Python 3 instalado.
+
+### **Passos para execução**
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/RenatoMAP77/Karatsuba.git
+   ```
+2. Acesse o diretório do projeto:
+   ```bash
+   cd src
+   ```
+3. Execute o script principal:
+   ```bash
+   python app.py
+   ```
+4. Insira dois números inteiros para multiplicação e veja o resultado exibido no terminal.
 
 
 ## Relatório Técnico
@@ -108,13 +135,38 @@ M = 13 - 12 + 2(1) = 3
 
 ### Análise de Complexidade Assintótica
 
-#### Analise de Complexidade de Tempo
+ **Análise da complexidade temporal**
+
+O algoritmo de Karatsuba melhora a eficiência da multiplicação tradicional reduzindo o número de operações necessárias. Em vez de realizar \( O(n^2) \) multiplicações como no método convencional, ele usa um esquema de divisão e conquista para reduzir essa complexidade. A cada nível da recursão, os números são divididos ao meio e três multiplicações menores são realizadas, além de operações adicionais de soma e potência de 10. Isso resulta em uma complexidade de tempo de aproximadamente:
+
+\
+O(n^{1.585})
+
+
+Esse valor surge porque a cada passo reduzimos o tamanho do problema pela metade, mas realizamos três chamadas recursivas em vez de quatro, como aconteceria na multiplicação tradicional.
+
+**Casos de Complexidade**
+- **Melhor caso:** Ocorre quando os números são pequenos o suficiente para serem multiplicados diretamente, resultando em  O(1) .
+- **Caso médio e pior caso:** Mantêm a complexidade  O(n^{1.585}), pois o algoritmo sempre segue a mesma estrutura recursiva.
+
+---
+
 
 #### Analise de Complexidade de Espaço
 
 
 
+A complexidade espacial do algoritmo de Karatsuba depende da profundidade da recursão.
 
+- Em cada chamada, o algoritmo faz 3 chamadas recursivas.
 
+- A profundidade da recursão é O(log n) (pois a cada passo os números são reduzidos pela metade).
 
+ Levando isto em consideração, a complexidade espacial do algoritmo de Karatsuba não foge de O(log n).
 
+## Referências
+https://www.youtube.com/watch?v=yWI2K4jOjFQ
+
+https://github.com/joaopauloaramuni/fundamentos-de-projeto-e-analise-de-algoritmos/blob/main/PDF/AULA%2001_Análise%20de%20complexidade%20de%20algoritmos.pdf
+
+https://github.com/joaopauloaramuni/fundamentos-de-projeto-e-analise-de-algoritmos/blob/main/PDF/AULA%2002_Introdução%20à%20teoria%20da%20complexidade.pdf
