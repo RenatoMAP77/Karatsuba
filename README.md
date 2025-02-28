@@ -94,9 +94,9 @@ Com isto explicado podemos partir para o calculo da complexidade ciclomática do
 9. Atribuição de `ac`
 10. Chamada recursiva `karatsuba(b, d)`
 11. Atribuição de `bd`
-10. Chamada recursiva `karatsuba(a + b, c + d)`
-11. Cálculo de `ad_plus_bc`
-12. Retorno da multiplicação combinada
+12. Chamada recursiva `karatsuba(a + b, c + d)`
+13. Cálculo de `ad_plus_bc`
+14. Retorno da multiplicação combinada
 
 **E - Arestas:**
 1. Início da função → Verificação do `if`
@@ -106,17 +106,20 @@ Com isto explicado podemos partir para o calculo da complexidade ciclomática do
 5. Cálculo de `half` → Cálculo das partes de `x`
 6. Cálculo das partes de `x` → Cálculo das partes de `y`
 7. Cálculo das partes de `y` → Chamada `karatsuba(a, c)`
-8. Chamada `karatsuba(a, c)` → Atibuição de `ac`
-9. Atribuição de ac → Chamada `karatsuba(b, d)`
-10. Chamada `karatsuba(b, d)` → Atribuição de `bd`
-11. Atribuição de `bd` → Chamada `karatsuba(a + b, c + d)`
-12. Chamada `karatsuba(a + b, c + d)` → Cálculo de `ad_plus_bc`
-13. Cálculo de `ad_plus_bc` → Retorno da multiplicação combinada
+8. Chamada `karatsuba(a, c)` → Inicio da funcao
+9. Chamada `karatsuba(a, c)` → Atibuição de `ac`
+10. Atribuição de ac → Chamada `karatsuba(b, d)`
+11. Chamada `karatsuba(b, d)` → Inicio da funcao
+12. Chamada `karatsuba(b, d)` → Atribuição de `bd`
+13. Atribuição de `bd` → Chamada `karatsuba(a + b, c + d)`
+14. Chamada `karatsuba(a + b, c + d)` → Inicio da funcao
+15. Chamada `karatsuba(a + b, c + d)` → Cálculo de `ad_plus_bc`
+16. Cálculo de `ad_plus_bc` → Retorno da multiplicação combinada
 
 
 Podendo ser melhor representado pela imagem a seguir do grafo de fluxo.
 
-![Grafo de Fluxo](Diagrama_karatsuba.jpg)
+![Grafo de Fluxo](Karatsuba.jpg)
 
 **Aplicando a Fórmula:**
 
@@ -125,12 +128,12 @@ Usando a fórmula da complexidade ciclomática:
 M = E - N + 2P
 \)
 Onde:
-- \( E = 13 \) (arestas)
-- \( N = 12 \) (nós)
+- \( E = 16 \) (arestas)
+- \( N = 14 \) (nós)
 - \( P = 1 \) (um único componente conectado)
 
 \(
-M = 13 - 12 + 2(1) = 3
+M = 16 - 14 + 2(1) = 4
 \)
 
 ---
